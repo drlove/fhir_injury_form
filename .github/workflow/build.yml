@@ -1,0 +1,45 @@
+name: Build and Publish FHIR IG
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Install SUSHI
+        run: npm install -g fsh-sushi
+
+      - name: Run SUSHI
+        run: sushi InjuryIG
+
+      - name: Download IG Publisher
+        run: |
+          curl -L -o publisher.jar \
+          https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar
+
+      - name: Run IG Publisher
+        run: |
+          java -jar publisher.jar -ig InjuryIG
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: InjuryIG/output
+
