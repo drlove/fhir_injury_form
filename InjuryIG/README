@@ -1,0 +1,29 @@
+# InjuryIG/input Folder: FHIR Shorthand (FSH) Source
+
+This directory contains the **Source of Truth** for the Injury Implementation Guide. We use **FHIR Shorthand (FSH)**, a domain-specific language designed to make the creation of FHIR artifacts (Profiles, Extensions, ValueSets, and Examples) faster and more readable than manual JSON/XML authoring.
+
+## 📂 Folder Structure
+
+- `fsh/`: Contains all `.fsh` files.
+    - `profiles/`: Definitions for constrained FHIR Resources (e.g., Injury-specific Observations).
+    - `extensions/`: Custom data elements not found in base FHIR.
+    - `terminology/`: ValueSets and CodeSystems used for injury coding.
+    - `examples/`: Realistic instances of resources to test profile validity.
+- `vocabulary/`: (Optional) Local CSV or supplemental files for large terminology sets.
+
+## 🚀 How to Use FSH in this Project
+
+### 1. Understanding the Syntax
+FSH uses a "Lead Word" syntax to define artifacts:
+- `Profile: [Name]` — Defines a new profile.
+- `Parent: [BaseResource]` — Specifies what the profile is based on.
+- `* [element] [cardinality] [type]` — Constraints an element (e.g., `* status 1..1`).
+
+### 2. Compiling to FHIR Artifacts
+We use **SUSHI** (an acronym for "FHIR Shorthand Under-the-hood Software Helper Infrastructure") to compile these files into formal FHIR JSON structure.
+
+**To build the project:**
+From the `InjuryIG/` root directory, run:
+```bash
+sushi .
+

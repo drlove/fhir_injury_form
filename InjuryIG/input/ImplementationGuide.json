@@ -1,0 +1,17 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "injury-ig",
+  "url": "http://example.org/fhir/injury-ig",
+  "version": "0.1.0",
+  "name": "InjuryIG",
+  "title": "Injury FHIR Implementation Guide",
+  "status": "draft",
+  "publisher": "InjuryIG",
+  "fhirVersion": [
+    "4.0.1"
+  ],
+  "definition": {
+    "resource": []
+  }
+}
+

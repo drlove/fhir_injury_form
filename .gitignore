@@ -1,0 +1,45 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# SUSHI & FHIR IG Publisher Generated Files
+InjuryIG/fsh-generated/
+InjuryIG/input-cache/
+InjuryIG/temp/
+InjuryIG/output
+InjuryIG/publisher.jar
+
+# Batch and Shell build scripts (if you don't want them in version control)
+InjuryIG/*.bat
+InjuryIG/*.sh
+
+# Other IG Publisher artifacts
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Runtime audit logs
+evidence/logs/*
+audit/last_commit.yml
+
+# Generated provenance events
+provenance/fhir/*.json
+
+# AI outputs (may contain sensitive drafts)
+evidence/outputs/*
+evidence/prompts/*
+
+# Environment
+.env
+*.env.local
+
+# Temp files
+*.tmp
+*.bak
+InjuryIG/publisher.jar
+output/
+input-cache/
+node_modules/

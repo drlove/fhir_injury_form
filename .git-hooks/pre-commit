@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+TS=$(date -Iseconds)
+
+echo "Recording AI audit trail..."
+
+# Store the exact time of the commit for cross-referencing logs.
+echo "commit_time: $TS" > audit/last_commit.yml
+git add audit/last_commit.yml
