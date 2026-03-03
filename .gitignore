@@ -1,6 +1,15 @@
 # OS
 .DS_Store
 Thumbs.db
+# IG build outputs
+**/output/
+**/temp/
+
+# SUSHI output (optional; keep if you prefer reproducible builds)
+# **/fsh-generated/
+
+# Local AI scratch
+**/claude.local.md
 
 # SUSHI & FHIR IG Publisher Generated Files
 InjuryIG/fsh-generated/
